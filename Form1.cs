@@ -44,6 +44,7 @@ namespace GreyDwarfLauncher
         {
             //System.IO.Directory.CreateDirectory(@"BepInEx\"); //Создаем папку для бепайнекса
             System.Net.WebClient wc = new System.Net.WebClient();
+            
             try
             {
                 label2.Text = wc.DownloadString(GlobalWorker.newsFile);
