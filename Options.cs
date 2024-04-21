@@ -22,7 +22,7 @@ namespace GreyDwarfLauncher.Resources
         
         private void OptionsForm_Load(object sender, EventArgs e)
         {
-            var url = "http://5.128.188.197:2020/api/public/dl/mDiXfNJk/Additions/options";
+            var url = "http://109.111.185.228:28017/api/public/dl/RVfsN9KV/options.txt";
             var textFromFile = (new WebClient()).DownloadString(url);
             var text = textFromFile.Split(new char[] { '\n', });
             check1.Text = text[0];

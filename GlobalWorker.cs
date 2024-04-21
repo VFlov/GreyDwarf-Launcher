@@ -16,11 +16,11 @@ namespace GreyDwarfLauncher
         public static string pathBepInEx = @"BepInEx\"; 
         public static string currPath = null;  // текущая директория
         public static string exename = "valheim.exe";
-        public static string versionFile = "http://5.128.188.197:2020/api/public/dl/UhCdfuel/version.txt";
-        public static string newsFile = "http://5.128.188.197:2020/api/public/dl/MZbisIkK/news.txt";
-        public static string updateFile = "http://5.128.188.197:2020/api/public/dl/5wJ1z_r1/update_v2.zip";
-        //public static string updateFile = "http://5.128.188.197:2020/api/public/dl/5wJ1z_r1/update_v2.zip";
-        public static string backgroundImage = "http://5.128.188.197:2020/api/public/dl/k7btbE1i/background_image.jpg"; 
+        public static string versionFile = "http://109.111.185.228:28017/api/public/dl/pVffTY3o/version.txt";
+        public static string newsFile = "http://109.111.185.228:28017/api/public/dl/I4UD5zA0/news.txt";
+        public static string updateFile = "http://109.111.185.228:28017/api/public/dl/tfuWpnQD/update_v2.zip";
+        ////public static string updateFile = "http://5.128.188.197:2020/api/public/dl/5wJ1z_r1/update_v2.zip";
+        public static string backgroundImage = "http://109.111.185.228:28017/api/public/dl/z3zKOoj1/background_image.png"; 
         public static string jsonPath = Path.GetTempPath(); //%temp%
         public static string url = "http://5.128.188.197:2020/api/public/dl/k7btbE1i/";
         public static bool downloading = false;

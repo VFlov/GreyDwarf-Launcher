@@ -15,11 +15,8 @@ namespace GreyDwarfLauncher
     delegate void Download();
     public partial class Form1 : Form
     {
-       
-        
         public Form1()
         {
-            
             InitializeComponent();
             Opacity = 0;
             Timer timer = new Timer();
@@ -63,9 +60,8 @@ namespace GreyDwarfLauncher
             {
                 ModOn.Image = GreyDwarfLauncher.Properties.Resources.green_control_22;
                 ModOff.Image = GreyDwarfLauncher.Properties.Resources.orange_control_28;
-            
             }
-            
+            /*
             var online1 = GlobalWorker.GetRequest();
             if (online1[1] == "ok")
             { 
@@ -79,7 +75,7 @@ namespace GreyDwarfLauncher
                 pictureBox3.BackgroundImage = Properties.Resources.greendot;
                 label6.Text = "Онлайн: " + online2[0];
             }
-            
+            */
             label2.Parent = pictureBox1;
             label2.BackColor = Color.Transparent;
             InitFont();
@@ -216,11 +212,11 @@ namespace GreyDwarfLauncher
                 {
                     item.Delete(true);
                 }
-                DirectoryInfo dir3 = new DirectoryInfo(Path.GetFullPath(GlobalWorker.currPath + @"\" + "unstripped_corlib"));
-                foreach (FileInfo item in dir3.GetFiles())
-                {
-                    item.Delete();
-                }
+                //DirectoryInfo dir3 = new DirectoryInfo(Path.GetFullPath(GlobalWorker.currPath + @"\" + "unstripped_corlib"));
+                //foreach (FileInfo item in dir3.GetFiles())
+                //{
+                //    item.Delete();
+                //}
                 foreach (DirectoryInfo item in dir.GetDirectories())
                 {
                     item.Delete(true);
@@ -232,7 +228,7 @@ namespace GreyDwarfLauncher
                 File.Delete(GlobalWorker.currPath + @"\" + "start_server_bepinex.sh");
                 File.Delete(GlobalWorker.currPath + @"\" + "winhttp.dll");
                 Directory.Delete(GlobalWorker.currPath + @"\" + "doorstop_libs");
-                Directory.Delete(GlobalWorker.currPath + @"\" + "unstripped_corlib");
+                //Directory.Delete(GlobalWorker.currPath + @"\" + "unstripped_corlib");
             }
 
             using (WebClient wc = new WebClient())
