@@ -41,7 +41,7 @@ namespace GreyDwarfLauncher
         {
             //System.IO.Directory.CreateDirectory(@"BepInEx\"); //Создаем папку для бепайнекса
             System.Net.WebClient wc = new System.Net.WebClient();
-            
+            /*
             try
             {
                 label2.Text = wc.DownloadString(GlobalWorker.newsFile);
@@ -51,6 +51,7 @@ namespace GreyDwarfLauncher
                 MessageBox.Show("Невозможно соединиться с сервером обновлений GreyDwarf. Проверьте свое подключение к сети интернет или обновление лаунчера на сайте GreyDwarf.ru. Если вам не удалось выявить источник данной ошибки - свяжитесь с нами!");
                 //Close();
             }
+            */
             if (GlobalWorker.Configuration.ModPackDisable)
             {
                 ModOn.Image = GreyDwarfLauncher.Properties.Resources.orange_control;
@@ -76,20 +77,22 @@ namespace GreyDwarfLauncher
                 label6.Text = "Онлайн: " + online2[0];
             }
             */
-            label2.Parent = pictureBox1;
-            label2.BackColor = Color.Transparent;
+            //label2.Parent = pictureBox1;
+            //label2.BackColor = Color.Transparent;
             InitFont();
             //label4.Font = new Font(pfc.Families[0], 13, FontStyle.Bold);
-            label3.Font = new Font(pfc.Families[0], 18, FontStyle.Regular);
-            label3.Parent = pictureBox1;
-            label3.BackColor = Color.Transparent;
-            label5.Font = new Font(pfc.Families[0], 14, FontStyle.Regular);
-            label5.Parent = pictureBox1;
-            label5.BackColor = Color.Transparent;
+            //label3.Font = new Font(pfc.Families[0], 18, FontStyle.Regular);
+            //label3.Parent = pictureBox1;
+            //label3.BackColor = Color.Transparent;
+            //label5.Font = new Font(pfc.Families[0], 14, FontStyle.Regular);
+            //label5.Parent = pictureBox1;
+            //label5.BackColor = Color.Transparent;
             pictureBox1.BackgroundImage = Properties.Resources.GrayDwarf_v2;
+            Random random = new Random();
+            int randNumOfBackgroundImage = random.Next(0, 3);
             try
             {
-                pictureBox1.ImageLocation = GlobalWorker.backgroundImage;
+                pictureBox1.ImageLocation = GlobalWorker.backgroundImage[randNumOfBackgroundImage];
                 pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage; //Подгон размера
             }
             catch 
@@ -97,8 +100,9 @@ namespace GreyDwarfLauncher
                 //MessageBox.Show("Невозможно установить фоновое изображение");
             }
             pictureBox2.BackgroundImage = Properties.Resources.loadbar1;
-            label1.Font = new Font(pfc.Families[0], 14, FontStyle.Regular);
-            transparentLabel1.Font = new Font(pfc.Families[0], 20, FontStyle.Regular);
+            label1.Font = new Font(pfc.Families[0], 12, FontStyle.Regular);
+            transparentLabel1.Font = new Font(pfc.Families[0], 18, FontStyle.Regular);
+            transparentLabel2.Font = new Font(pfc.Families[0], 18, FontStyle.Regular);
             label1.BringToFront();
             button1.Font = new Font(pfc.Families[0], 30, FontStyle.Regular);
 
@@ -141,7 +145,7 @@ namespace GreyDwarfLauncher
             label1.Text = "Версия клиента: v" + GlobalWorker.version + "    /     Актуальная версия: v" + GlobalWorker.serverVersion;
             if (GlobalWorker.version == "Не установлен")
                 label1.Text = "Версия клиента: v" + "0.0" + "    /     Актуальная версия: v" + GlobalWorker.serverVersion;
-            label3.Text = "Что нового v" + GlobalWorker.serverVersion;
+            //label3.Text = "Что нового v" + GlobalWorker.serverVersion;
 
 
             if (!GlobalWorker.downloading)
@@ -233,17 +237,23 @@ namespace GreyDwarfLauncher
 
             using (WebClient wc = new WebClient())
             {
+                Stopwatch stopwatch = new Stopwatch();
+                stopwatch.Start();
                 wc.DownloadProgressChanged += (s, g) =>
                 {
-                    var text = $@"{g.BytesReceived / megabyte}/{g.TotalBytesToReceive / megabyte}";
+                    var text = $@"{g.BytesReceived / megabyte}/{g.TotalBytesToReceive / megabyte}" + "Mb";
+                    string downloadSpeed = string.Format("{0} MB/s", (g.BytesReceived / 1024.0 / 1024.0 / stopwatch.Elapsed.TotalSeconds).ToString("0.00"));
                     if (transparentLabel1.Text != text)
                         transparentLabel1.Text = text;
+                    if (transparentLabel2.Text != downloadSpeed)
+                        transparentLabel2.Text = downloadSpeed;
 
                     pictureBox2.Width = (int)(591f * (g.ProgressPercentage / 100f));
                 };
 
                 wc.DownloadFileCompleted += (s, g) =>
                 {
+                    stopwatch.Stop();
                     if (g.Cancelled)
                     {
                         MessageBox.Show("Загрузка была отменена.");
@@ -457,6 +467,26 @@ namespace GreyDwarfLauncher
         private void label6_Click_2(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_MouseEnter(object sender, EventArgs e)
+        {
+            if (!GlobalWorker.downloading && GlobalWorker.version == GlobalWorker.Configuration.Version)
+                button1.Text = "Погрузиться";
+        }
+
+        private void button1_MouseLeave(object sender, EventArgs e)
+        {
+            if (!GlobalWorker.downloading && GlobalWorker.version == GlobalWorker.Configuration.Version)
+                button1.Text = "Играть";
+        }
+
+        private void button3_Click_1(object sender, EventArgs e)
+        {
+            if (File.Exists(GlobalWorker.currPath + @"\" + "BepInEx" + @"\" + "LogOutput.log"))
+            {
+                Clipboard.SetText(File.ReadAllText(GlobalWorker.currPath + @"\" + "BepInEx" + @"\" + "LogOutput.log"));
+            }
         }
     }
 }

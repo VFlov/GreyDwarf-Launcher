@@ -22,7 +22,7 @@ namespace GreyDwarfLauncher.Resources
         
         private void OptionsForm_Load(object sender, EventArgs e)
         {
-            var url = "http://109.111.185.228:28017/api/public/dl/RVfsN9KV/options.txt";
+            var url = "http://85.209.9.15:8080/api/public/dl/FbxR7sAG/fileserver/options.txt";
             var textFromFile = (new WebClient()).DownloadString(url);
             var text = textFromFile.Split(new char[] { '\n', });
             check1.Text = text[0];
@@ -33,6 +33,7 @@ namespace GreyDwarfLauncher.Resources
             adminToolsCheckBox.Checked = GlobalWorker.Configuration.AdminTools;
             check3.Checked = GlobalWorker.Configuration.check3;
             StartParamsComboBox.SelectedItem = GlobalWorker.Configuration.StartParams;
+            
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)

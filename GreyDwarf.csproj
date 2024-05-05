@@ -28,7 +28,7 @@
     <MapFileExtensions>false</MapFileExtensions>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>2.0.0.0</ApplicationVersion>
+    <ApplicationVersion>3.0.0.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -68,7 +68,7 @@
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>disclogo.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\ico.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestCertificateThumbprint>BF5DC8647E5BDEDCAB254EDA613559724BE6EB45</ManifestCertificateThumbprint>
@@ -80,8 +80,7 @@
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <StartupObject>
-    </StartupObject>
+    <StartupObject>GreyDwarfLauncher.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>false</SignAssembly>
@@ -90,7 +89,7 @@
     <AssemblyOriginatorKeyFile>GreyDwarf_2_TemporaryKey.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <DelaySign>true</DelaySign>
+    <DelaySign>false</DelaySign>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Costura, Version=5.7.0.0, Culture=neutral, processorArchitecture=MSIL">
@@ -338,7 +337,7 @@
     <None Include="Resources\loadbar.bmp" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="disclogo.ico" />
+    <None Include="Resources\log.png" />
     <None Include="Resources\reddot.png" />
     <None Include="Resources\orange_control.png" />
     <None Include="Resources\orange_control_2.png" />
@@ -351,11 +350,11 @@
     <None Include="Resources\options.png" />
     <None Include="Resources\options.bmp" />
     <None Include="Resources\morebutton.png" />
-    <None Include="Resources\disclogo.ico" />
     <None Include="Resources\GreyDwarf.bmp" />
     <None Include="Resources\discordapp.bmp" />
     <None Include="Resources\build_off_white.png" />
     <None Include="Resources\build_off_whit.png" />
+    <None Include="Resources\ico.ico" />
     <Content Include="Resources\discordapp.png" />
     <None Include="Resources\discord_small_white.png" />
     <None Include="Resources\exit_small_white.png" />

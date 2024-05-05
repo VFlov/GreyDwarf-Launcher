@@ -16,13 +16,16 @@ namespace GreyDwarfLauncher
         public static string pathBepInEx = @"BepInEx\"; 
         public static string currPath = null;  // текущая директория
         public static string exename = "valheim.exe";
-        public static string versionFile = "http://109.111.185.228:28017/api/public/dl/pVffTY3o/version.txt";
-        public static string newsFile = "http://109.111.185.228:28017/api/public/dl/I4UD5zA0/news.txt";
-        public static string updateFile = "http://109.111.185.228:28017/api/public/dl/tfuWpnQD/update_v2.zip";
+        public static string versionFile = "http://85.209.9.15:8080/api/public/dl/xOiZMtSQ/fileserver/version.txt";
+        public static string newsFile = "http://85.209.9.15:8080/api/public/dl/xS00q43M/fileserver/news.txt";
+        public static string updateFile = "http://85.209.9.15:8080/api/public/dl/Ggz5EpC9/fileserver/update_v2.zip";
         ////public static string updateFile = "http://5.128.188.197:2020/api/public/dl/5wJ1z_r1/update_v2.zip";
-        public static string backgroundImage = "http://109.111.185.228:28017/api/public/dl/z3zKOoj1/background_image.png"; 
+        public static string[] backgroundImage = {"http://85.209.9.15:8080/api/public/dl/dchbO8A_/fileserver/background_image.jpg",
+            "http://85.209.9.15:8080/api/public/dl/AxTzFIWr/fileserver/background_image2.jpg",
+            "http://85.209.9.15:8080/api/public/dl/4489xQtR/fileserver/background_image3.jpg"
+        };
         public static string jsonPath = Path.GetTempPath(); //%temp%
-        public static string url = "http://5.128.188.197:2020/api/public/dl/k7btbE1i/";
+        public static string url = "http://85.209.9.15:8080/api/public/dl/xOiZMtSQ";
         public static bool downloading = false;
         public static bool chooseUpdate;
         public static ConfigurationData Configuration = new ConfigurationData();
