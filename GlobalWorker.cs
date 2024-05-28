@@ -16,9 +16,9 @@ namespace GreyDwarfLauncher
         public static string pathBepInEx = @"BepInEx\"; 
         public static string currPath = null;  // текущая директория
         public static string exename = "valheim.exe";
-        public static string versionFile = "http://85.209.9.15:8080/api/public/dl/xOiZMtSQ/fileserver/version.txt";
-        public static string newsFile = "http://85.209.9.15:8080/api/public/dl/xS00q43M/fileserver/news.txt";
-        public static string updateFile = "http://85.209.9.15:8080/api/public/dl/Ggz5EpC9/fileserver/update_v2.zip";
+        public static string versionFile = "http://85.209.9.15:8080/api/public/dl/fileserver/version.txt";
+        public static string newsFile = "http://85.209.9.15:8080/api/public/dl/fileserver/news.txt";
+        public static string updateFile = "http://85.209.9.15:8080/api/public/dl/fileserver/update_v2.zip";
         ////public static string updateFile = "http://5.128.188.197:2020/api/public/dl/5wJ1z_r1/update_v2.zip";
         public static string[] backgroundImage = {"http://85.209.9.15:8080/api/public/dl/dchbO8A_/fileserver/background_image.jpg",
             "http://85.209.9.15:8080/api/public/dl/AxTzFIWr/fileserver/background_image2.jpg",
